@@ -26,10 +26,16 @@ def test_filling_form_personal_data():
     browser.element('#react-select-4-input').type('Karnal').press_enter()
     browser.element('#submit').press_enter()
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
-    browser.element('.table').should(have.text('Pavel'
-                                               and 'Durov' and 'durov@vk.com'
-                                               and 'Male' and '99999999999'
-                                               and '10 November,1984' and 'Physics'
-                                               and 'Reading'
-                                               and 'user1.jpg' and 'Karnal'
-                                               and 'Haryana' and 'Karnal'))
+    browser.all('.table-responsive td:nth-child(2)').should(have.texts(
+        'Pavel Durov',
+        'durov@vk.com',
+        'Male',
+        '9999999999',
+        '10 November,1984',
+        'Physics',
+        'Reading',
+        'user1.jpg',
+        'Karnal',
+        'Haryana Karnal'
+    )
+    )
